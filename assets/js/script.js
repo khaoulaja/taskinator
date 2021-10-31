@@ -191,7 +191,9 @@ var saveTasks = function() {
 var loadTasks = function(){
    var  localTasks = localStorage.getItem("tasks");
     tasks = JSON.parse(localTasks);
-    
+    if(tasks === null){
+        tasks=[];
+    }
    for (var i = 0; i < tasks.length; i++) {
         taskIdCounter =tasks[i].id;
         var listItemEl =document.createElement("li");
